@@ -52,7 +52,7 @@ function resizeImages(imageData, size, cb) {
 
 fs.readFile(path.resolve(__dirname, 'sample.png'), (err, imageData) => {
   if (err) console.log('shit', err);
-  if (!fs.existsSync('.tmp')) fs.mkdir('.tmp');
+  if (!fs.existsSync('.tmp')) fs.mkdirSync('.tmp');
 
   let resizePass = Object.keys(icons).reduce((promiseChain, size) => {
     return promiseChain.then(
@@ -63,7 +63,7 @@ fs.readFile(path.resolve(__dirname, 'sample.png'), (err, imageData) => {
     );
   }, Promise.resolve());
 
-  console.log('⏱  Resizing ===================>');
+  console.log('⏱  Resizing...');
   resizePass.then(() => {
     console.log('✅  Success!');
     console.log('');
@@ -78,13 +78,13 @@ fs.readFile(path.resolve(__dirname, 'sample.png'), (err, imageData) => {
       );
     }, Promise.resolve());
 
-    console.log('⏱  Optimizing ===================>');
+    console.log('⏱  Optimizing...');
     optimizationPass.then(() => {
       console.log('✅  Success!');
       console.log('');
       console.log('');
 
-      console.log('⏱  Cleaning Up ===================>');
+      console.log('⏱  Cleaning Up...');
       rimraf('.tmp', () => {
         console.log('✅  Success!');
       });
