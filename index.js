@@ -37,6 +37,26 @@ function optimizeImages(size, cb) {
 function resizeImages(imageBuffer, size, cb) {
   // https://github.com/aheckmann/gm
   gm(imageBuffer)
+    // Validation
+    .format((err, value) => {
+      if (err) throw new Error(err);
+      if (value !== 'PNG')
+        throw new Error(
+          'Source image must be PNG format. See README.me for details.'
+        );
+    })
+    .size((err, value) => {
+      if (err) throw new Error(err);
+      if (value.width !== value.height)
+        throw new Error(
+          'Source image must be a square. See README.me for details.'
+        );
+      if (value.width < 512)
+        throw new Error(
+          'Source image dimensions must be at least 512px x 512px. See README.me for details.'
+        );
+    })
+    // Resizing
     .resize(size, size)
     .write(
       path.resolve(__dirname, `./.tmp/${icons[size]}-icon-${size}x${size}.png`),
