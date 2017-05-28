@@ -19,6 +19,26 @@ npm start ./sample.png
 mv icons/ ../path/to/desired/directory/
 ```
 
-Browser and Mobile OS vendors have different methods for handling web apps on their different devices.
+
+## Example:
+`npm start ./sample.png`
+
+| Filename                             | Image                                                    |
+| ------------------------------------ | -------------------------------------------------------- |
+| ./icons/apple-touch-icon-60x60.png   | ![apple-touch-60](./icons/apple-touch-icon-60x60.png)    |
+| ./icons/apple-touch-icon-120x120.png | ![apple-touch-120](./icons/apple-touch-icon-120x120.png) |
+| ./icons/apple-touch-icon-152x152.png | ![apple-touch-152](./icons/apple-touch-icon-152x152.png) |
+| ./icons/apple-touch-icon-152x152.png | ![apple-touch-152](./icons/apple-touch-icon-152x152.png) |
+| ./icons/apple-touch-icon-167x167.png | ![apple-touch-167](./icons/apple-touch-icon-167x167.png) |
+| ./icons/apple-touch-icon-180x180.png | ![apple-touch-180](./icons/apple-touch-icon-180x180.png) |
+| ./icons/pwa-icon-192x192.png         | ![pwa-192](./icons/pwa-icon-192x192.png)                 |
+| ./icons/pwa-icon-256x256.png         | ![pwa-256](./icons/pwa-icon-256x256.png)                 |
+| ./icons/pwa-icon-384x384.png         | ![pwa-384](./icons/pwa-icon-384x384.png)                 |
+| ./icons/pwa-icon-512x512.png         | ![pwa-512](./icons/pwa-icon-512x512.png)                 |
+
+
+## Guidelines
+
+Browser and Mobile OS vendors have different methods for handling web apps on their different devices. These are always changing and seem to be quite opinionated. If you feel that something is out-of-date with this script, feel free to open an issue and submit a pull request!
 
 [[Apple Guidelines]](https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html) [[Google Guidelines]](https://developers.google.com/web/fundamentals/design-and-ui/browser-customization/#provide_great_icons_tiles)
