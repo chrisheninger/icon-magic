@@ -19,7 +19,7 @@ const icons = {
   512: 'pwa',
 };
 
-function optimizeImages(filename, cb) {
+function optimizeImage(filename, cb) {
   // https://github.com/imagemin/imagemin
   imagemin(
     [path.resolve(__dirname, `./.tmp/${filename}`)], // input file
@@ -33,7 +33,7 @@ function optimizeImages(filename, cb) {
   });
 }
 
-function resizeImages(imageBuffer, size, cb) {
+function resizeImage(imageBuffer, size, cb) {
   const filename = icons[size] === 'favicon'
     ? 'favicon.png'
     : `${icons[size]}-icon-${size}x${size}.png`;
@@ -86,7 +86,7 @@ if (fs.existsSync(args[2])) {
     let resizePass = Object.keys(icons).map(
       size =>
         new Promise(resolve => {
-          resizeImages(imageBuffer, size, resolve);
+          resizeImage(imageBuffer, size, resolve);
         })
     );
 
@@ -100,7 +100,7 @@ if (fs.existsSync(args[2])) {
         let optimizationPass = resizedImages.map(
           filename =>
             new Promise(resolve => {
-              optimizeImages(filename, resolve);
+              optimizeImage(filename, resolve);
             })
         );
 
