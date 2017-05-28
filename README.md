@@ -73,7 +73,7 @@ mv icons/ ../path/to/desired/directory/
 
 
 ## Example:
-`npm start ./icons/sample.png`
+`npm start ./sample.png`
 
 | Filename                     | Image                                                    |
 | ---------------------------- | -------------------------------------------------------- |
