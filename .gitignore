@@ -5,6 +5,8 @@ node_modules
 
 # production
 .tmp
+build
+icon-magic-darwin-x64
 
 # misc
 .DS_Store

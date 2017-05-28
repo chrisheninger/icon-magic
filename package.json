@@ -2,16 +2,24 @@
   "name": "icon-magic",
   "version": "0.0.1",
   "description": "Auto-generate your 'Add to Homescreen' icons for Apple and Android devices from a single source image.",
-  "main": "index.js",
+  "license": "MIT",
+  "main": "main.js",
   "scripts": {
-    "magic": "node --trace-warnings index.js",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "magic": "node --trace-warnings icon-magic.js",
+    "react-start": "react-scripts start",
+    "electron-start": "electron .",
+    "start": "concurrently 'yarn react-start' 'wait-on http://localhost:3000/ && yarn electron-start'",
+    "react-build": "react-scripts build",
+    "electron-build": "electron-packager ./ --overwrite",
+    "build": "yarn react-build && yarn electron-build",
+    "eject": "react-scripts eject",
     "precommit": "lint-staged",
     "test": "echo \"lol tests? 🙈   nope.\" && exit 1"
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "electron-debug": "^1.1.0",
+    "electron-devtools-installer": "^2.2.0",
     "fela": "^4.3.5",
     "fela-plugin-fallback-value": "^4.3.5",
     "fela-plugin-prefixer": "^4.3.5",
@@ -25,9 +33,13 @@
     "rimraf": "^2.6.1"
   },
   "devDependencies": {
+    "concurrently": "^3.4.0",
+    "electron": "^1.7.2",
+    "electron-is-dev": "0.1.2",
+    "electron-packager": "^8.7.0",
     "husky": "^0.13.4",
     "lint-staged": "^3.5.0",
-    "react-scripts": "^1.0.7"
-  },
-  "license": "MIT"
+    "react-scripts": "^1.0.7",
+    "wait-on": "^2.0.2"
+  }
 }
