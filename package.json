@@ -11,7 +11,8 @@
   "dependencies": {
     "gm": "^1.23.0",
     "imagemin": "^5.3.1",
-    "imagemin-pngquant": "^5.0.0"
+    "imagemin-pngquant": "^5.0.0",
+    "rimraf": "^2.6.1"
   },
   "license": "TBD"
 }

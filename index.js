@@ -1,6 +1,7 @@
 const fs = require('fs');
 const gm = require('gm');
 const path = require('path');
+const rimraf = require('rimraf');
 const imagemin = require('imagemin');
 const imageminPngquant = require('imagemin-pngquant');
 
@@ -16,19 +17,13 @@ const icons = {
   512: 'pwa',
 };
 
-function cleanup(size, cb) {
-  fs.unlink(
-    path.resolve(__dirname, `./${icons[size]}-icon-${size}x${size}.png`),
-    cb
-  );
-}
-
 function optimizeImages(size, cb) {
+  // https://github.com/imagemin/imagemin
   imagemin(
-    [path.resolve(__dirname, `./${icons[size]}-icon-${size}x${size}.png`)],
-    'icons',
-    { use: [imageminPngquant({ quality: '100' })] }
-  ).then(function() {
+    [path.resolve(__dirname, `./.tmp/${icons[size]}-icon-${size}x${size}.png`)], // input file
+    'icons', // output dir
+    { use: [imageminPngquant({ quality: '100' })] } // plugins/settings
+  ).then(err => {
     console.log(
       `./${icons[size]}-icon-${size}x${size}.png ===> Optimization complete 🎉`
     );
@@ -37,10 +32,11 @@ function optimizeImages(size, cb) {
 }
 
 function resizeImages(imageData, size, cb) {
+  // https://github.com/aheckmann/gm
   gm(imageData)
     .resizeExact(size, size)
     .write(
-      path.resolve(__dirname, `./${icons[size]}-icon-${size}x${size}.png`),
+      path.resolve(__dirname, `./.tmp/${icons[size]}-icon-${size}x${size}.png`),
       err => {
         if (err) {
           console.log('shit', err);
@@ -56,6 +52,7 @@ function resizeImages(imageData, size, cb) {
 
 fs.readFile(path.resolve(__dirname, 'sample.png'), (err, imageData) => {
   if (err) console.log('shit', err);
+  if (!fs.existsSync('.tmp')) fs.mkdir('.tmp');
 
   let resizePass = Object.keys(icons).reduce((promiseChain, size) => {
     return promiseChain.then(
@@ -68,7 +65,7 @@ fs.readFile(path.resolve(__dirname, 'sample.png'), (err, imageData) => {
 
   console.log('⏱  Resizing ===================>');
   resizePass.then(() => {
-    console.log('✅  Resizing Success!');
+    console.log('✅  Success!');
     console.log('');
     console.log('');
 
@@ -87,20 +84,9 @@ fs.readFile(path.resolve(__dirname, 'sample.png'), (err, imageData) => {
       console.log('');
       console.log('');
 
-      let cleanupPass = Object.keys(icons).reduce((promiseChain, size) => {
-        return promiseChain.then(
-          () =>
-            new Promise(resolve => {
-              cleanup(size, resolve);
-            })
-        );
-      }, Promise.resolve());
-
       console.log('⏱  Cleaning Up ===================>');
-      optimizationPass.then(() => {
+      rimraf('.tmp', () => {
         console.log('✅  Success!');
-        console.log('');
-        console.log('');
       });
     });
   });
