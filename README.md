@@ -14,10 +14,8 @@ npm install
 // The script takes a single argument– a source image path (png-only)
 npm start ./sample.png
 
-// 🎉🎉🎉
-// If everything is resized and compressed successfully,
-// you should have an icons directory with all the prefixed, resized, and optimized images!
-// 🎉🎉🎉
+// If everything is successful, you should have a directory named 'icons'
+// with all the prefixed, resized, and optimized images! 🎉
 
 // Move the outputted icons directory to your project directory
 mv icons/ ../path/to/desired/directory/
