@@ -19,11 +19,7 @@ const icons = {
   512: 'pwa',
 };
 
-function optimizeImages(size, cb) {
-  const filename = icons[size] === 'favicon'
-    ? 'favicon.png'
-    : `${icons[size]}-icon-${size}x${size}.png`;
-
+function optimizeImages(filename, cb) {
   // https://github.com/imagemin/imagemin
   imagemin(
     [path.resolve(__dirname, `./.tmp/${filename}`)], // input file
@@ -71,7 +67,8 @@ function resizeImages(imageBuffer, size, cb) {
       } else {
         console.log(`./${filename} ===> Resize complete 🎉`);
       }
-      cb();
+      console.log(cb, filename);
+      cb(filename);
     });
 }
 
@@ -85,44 +82,40 @@ if (fs.existsSync(args[2])) {
     if (!fs.existsSync('.tmp')) fs.mkdirSync('.tmp');
     if (fs.existsSync('icons')) rimraf('icons', () => {});
 
-    let resizePass = Object.keys(icons).reduce((promiseChain, size) => {
-      return promiseChain.then(
-        () =>
-          new Promise(resolve => {
-            resizeImages(imageBuffer, size, resolve);
-          })
-      );
-    }, Promise.resolve());
-
     console.log('⏱  Resizing...');
-    resizePass.then(() => {
-      console.log('✅  Success!');
-      console.log('');
-      console.log('');
+    let resizePass = Object.keys(icons).map(
+      size =>
+        new Promise(resolve => {
+          resizeImages(imageBuffer, size, resolve);
+        })
+    );
 
-      let optimizationPass = Object.keys(icons).reduce((promiseChain, size) => {
-        return promiseChain.then(
-          () =>
+    Promise.all(resizePass)
+      .then(resizedImages => {
+        console.log('✅  Success!\n\n');
+
+        console.log(
+          '⏱  Optimizing... larger icons will take longer... use the fifth P!'
+        );
+        let optimizationPass = resizedImages.map(
+          filename =>
             new Promise(resolve => {
-              optimizeImages(size, resolve);
+              optimizeImages(filename, resolve);
             })
         );
-      }, Promise.resolve());
 
-      console.log(
-        '⏱  Optimizing... larger icons will take longer... use the fifth P!'
-      );
-      optimizationPass.then(() => {
-        console.log('✅  Success! Thanks for being patient.');
-        console.log('');
-        console.log('');
+        Promise.all(optimizationPass).then(() => {
+          console.log('✅  Success! Thanks for being patient.\n\n');
 
-        console.log('⏱  Cleaning Up...');
-        rimraf('.tmp', () => {
-          console.log('✅  Success!');
+          console.log('⏱  Cleaning Up...');
+          rimraf('.tmp', () => {
+            console.log('✅  Success!');
+          });
         });
+      })
+      .catch(err => {
+        console.log(`❌  This is bad... I have no idea what's gone wrong.`, err);
       });
-    });
   });
 } else {
   throw Error(
