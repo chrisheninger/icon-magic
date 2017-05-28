@@ -94,3 +94,8 @@ mv icons/ ../path/to/desired/directory/
 Browser and Mobile OS vendors have different methods for handling web apps on their different devices. These are always changing and seem to be quite opinionated. If you feel that something is out-of-date with this script, feel free to open an issue and submit a pull request!
 
 [[Apple Guidelines]](https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html) [[Google Guidelines]](https://developers.google.com/web/fundamentals/design-and-ui/browser-customization/#provide_great_icons_tiles)
+
+
+## Mac OS App
+
+A drag-and-drop standalone Mac OS App is currently in the works thanks to [Create React App](https://github.com/facebookincubator/create-react-app) and [Electron](https://github.com/electron/electron). 
