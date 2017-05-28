@@ -1,5 +1,5 @@
 # Icon Magic 📲🕴
-A Node script that uses [GraphicsMagick](http://aheckmann.github.io/gm/docs.html) and [ImageMin](https://github.com/imagemin/imagemin) to resize, optimize, and prefix your "Add to Homescreen" icons for Apple and Android devices from a single source image (png).
+A Node script that uses [GraphicsMagick](http://aheckmann.github.io/gm/docs.html) and [imagemin](https://github.com/imagemin/imagemin)+[imagemin-Zopfli](https://github.com/imagemin/imagemin-zopfli) to resize, optimize, and prefix your "Add to Homescreen" icons for Apple and Android devices from a single source image (png).
 
 ## Usage:
 Make sure you have GraphicsMagick ☝️ installed on your machine and available on the command-line already.
@@ -22,6 +22,7 @@ mv icons/ ../path/to/desired/directory/
 
 ## Markup:
 ```html
+<link rel="shortcut icon" href="./path/to/icons/favicon.png">
 <!-- Apple Guidelines: https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html -->
 <link rel="apple-touch-icon" href="./path/to/icons/apple-touch-icon-60x60.png" />
 <link rel="apple-touch-icon" sizes="120x120" href="./path/to/icons/apple-touch-icon-120x120.png" />
