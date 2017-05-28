@@ -25,17 +25,6 @@ function createWindow() {
       : `file://${path.join(__dirname, '/build/index.html')}` // Bundled application
   );
 
-  console.log(mainWindow);
-
-  // and load the index.html of the app.
-  // mainWindow.loadURL(
-  //   url.format({
-  //     pathname: path.join(__dirname, 'index.html'),
-  //     protocol: 'file:',
-  //     slashes: true,
-  //   })
-  // );
-
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 

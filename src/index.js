@@ -5,7 +5,6 @@ import { Provider, ThemeProvider } from 'react-fela';
 import prefixer from 'fela-plugin-prefixer';
 import fallbackValue from 'fela-plugin-fallback-value';
 import { themeConfig } from './index-styles';
-import registerServiceWorker from './service-worker-registration';
 
 import './reset.css';
 import './base.css';
@@ -25,5 +24,3 @@ render(
   </ThemeProvider>,
   document.getElementById('root')
 );
-
-registerServiceWorker();
