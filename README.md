@@ -19,22 +19,73 @@ npm start ./sample.png
 mv icons/ ../path/to/desired/directory/
 ```
 
+## Tags:
+```html
+<!-- Apple Guidelines: https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html -->
+<link rel="apple-touch-icon" href="./path/to/icons/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="./path/to/icons/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="./path/to/icons/apple-touch-icon-152x152.png" />
+<link rel="apple-touch-icon" sizes="167x167" href="./path/to/icons/apple-touch-icon-167x167.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="./path/to/icons/apple-touch-icon-180x180.png" />
+<meta name="apple-mobile-web-app-title" content="App Title">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<!-- Android Guidelines: https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/-->
+<link rel="manifest" href="./path/to/manifest.json">
+<meta name="theme-color" content="#009ad3">
+```
+
+```js
+/* Manifest.json– see Android Guidelines above for configuration options */
+{
+  "short_name": "App Title",
+  "name": "A bit longer of an App Title",
+  "start_url": "./path/to/index.html",
+  "icons": [
+    {
+      "src": "./path/to/icons/pwa-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./path/to/icons/pwa-icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "./path/to/icons/pwa-icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "./path/to/icons/pwa-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "background_color": "#f5f5f5",
+  "theme_color": "#009ad3",
+  "display": "standalone",
+  "orientation": "portrait"
+}
+```
+
 
 ## Example:
 `npm start ./sample.png`
 
-| Filename                             | Image                                                    |
-| ------------------------------------ | -------------------------------------------------------- |
-| ./icons/apple-touch-icon-60x60.png   | ![apple-touch-60](./icons/apple-touch-icon-60x60.png)    |
-| ./icons/apple-touch-icon-120x120.png | ![apple-touch-120](./icons/apple-touch-icon-120x120.png) |
-| ./icons/apple-touch-icon-152x152.png | ![apple-touch-152](./icons/apple-touch-icon-152x152.png) |
-| ./icons/apple-touch-icon-152x152.png | ![apple-touch-152](./icons/apple-touch-icon-152x152.png) |
-| ./icons/apple-touch-icon-167x167.png | ![apple-touch-167](./icons/apple-touch-icon-167x167.png) |
-| ./icons/apple-touch-icon-180x180.png | ![apple-touch-180](./icons/apple-touch-icon-180x180.png) |
-| ./icons/pwa-icon-192x192.png         | ![pwa-192](./icons/pwa-icon-192x192.png)                 |
-| ./icons/pwa-icon-256x256.png         | ![pwa-256](./icons/pwa-icon-256x256.png)                 |
-| ./icons/pwa-icon-384x384.png         | ![pwa-384](./icons/pwa-icon-384x384.png)                 |
-| ./icons/pwa-icon-512x512.png         | ![pwa-512](./icons/pwa-icon-512x512.png)                 |
+| Filename                     | Image                                                    |
+| ---------------------------- | -------------------------------------------------------- |
+| apple-touch-icon-60x60.png   | ![apple-touch-60](./icons/apple-touch-icon-60x60.png)    |
+| apple-touch-icon-120x120.png | ![apple-touch-120](./icons/apple-touch-icon-120x120.png) |
+| apple-touch-icon-152x152.png | ![apple-touch-152](./icons/apple-touch-icon-152x152.png) |
+| apple-touch-icon-152x152.png | ![apple-touch-152](./icons/apple-touch-icon-152x152.png) |
+| apple-touch-icon-167x167.png | ![apple-touch-167](./icons/apple-touch-icon-167x167.png) |
+| apple-touch-icon-180x180.png | ![apple-touch-180](./icons/apple-touch-icon-180x180.png) |
+| pwa-icon-192x192.png         | ![pwa-192](./icons/pwa-icon-192x192.png)                 |
+| pwa-icon-256x256.png         | ![pwa-256](./icons/pwa-icon-256x256.png)                 |
+| pwa-icon-384x384.png         | ![pwa-384](./icons/pwa-icon-384x384.png)                 |
+| pwa-icon-512x512.png         | ![pwa-512](./icons/pwa-icon-512x512.png)                 |
 
 
 ## Guidelines
