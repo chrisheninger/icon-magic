@@ -101,3 +101,5 @@ Browser and Mobile OS vendors have different methods for handling web apps on th
 ## Mac OS App
 
 A drag-and-drop standalone Mac OS App is currently in the works thanks to [Create React App](https://github.com/facebookincubator/create-react-app) and [Electron](https://github.com/electron/electron).
+
+https://github.com/chrisheninger/icon-magic/issues/4
