@@ -1,5 +1,5 @@
 # Icon Magic 📲🕴
-A Node script that uses [GraphicsMagick](http://aheckmann.github.io/gm/docs.html) and [imagemin](https://github.com/imagemin/imagemin)+[imagemin-Zopfli](https://github.com/imagemin/imagemin-zopfli) to resize, optimize, and prefix your "Add to Homescreen" icons for Apple and Android devices from a single source image (png).
+A Node script that uses [GraphicsMagick](http://aheckmann.github.io/gm/docs.html) and [imagemin](https://github.com/imagemin/imagemin) + [imagemin-Zopfli](https://github.com/imagemin/imagemin-zopfli) to resize, optimize, and prefix your "Add to Homescreen" icons for Apple and Android devices from a single source image (png).
 
 ## Usage:
 Make sure you have GraphicsMagick ☝️ installed on your machine and available on the command-line already.
