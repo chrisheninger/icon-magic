@@ -1,0 +1,17 @@
+{
+  "name": "icon-magic",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "magic": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "dependencies": {
+    "gm": "^1.23.0",
+    "imagemin": "^5.3.1",
+    "imagemin-pngquant": "^5.0.0"
+  },
+  "license": "TBD"
+}
