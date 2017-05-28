@@ -3,7 +3,7 @@ const gm = require('gm');
 const path = require('path');
 const rimraf = require('rimraf');
 const imagemin = require('imagemin');
-const imageminPngquant = require('imagemin-pngquant');
+const imageminZopfli = require('imagemin-zopfli');
 
 const icons = {
   60: 'apple-touch',
@@ -22,8 +22,10 @@ function optimizeImages(size, cb) {
   imagemin(
     [path.resolve(__dirname, `./.tmp/${icons[size]}-icon-${size}x${size}.png`)], // input file
     'icons', // output dir
-    { use: [imageminPngquant({ quality: '100' })] } // plugins/settings
-  ).then(err => {
+    {
+      use: [imageminZopfli({ more: true })], // https://github.com/imagemin/imagemin-zopfli
+    }
+  ).then(() => {
     console.log(
       `./${icons[size]}-icon-${size}x${size}.png ===> Optimization complete 🎉`
     );
@@ -31,10 +33,11 @@ function optimizeImages(size, cb) {
   });
 }
 
-function resizeImages(imageData, size, cb) {
+function resizeImages(imageBuffer, size, cb) {
   // https://github.com/aheckmann/gm
-  gm(imageData)
-    .resizeExact(size, size)
+  gm(imageBuffer)
+    .resize(size, size)
+    .compress('Lossless')
     .write(
       path.resolve(__dirname, `./.tmp/${icons[size]}-icon-${size}x${size}.png`),
       err => {
@@ -50,15 +53,16 @@ function resizeImages(imageData, size, cb) {
     );
 }
 
-fs.readFile(path.resolve(__dirname, 'sample.png'), (err, imageData) => {
+fs.readFile(path.resolve(__dirname, 'sample.png'), (err, imageBuffer) => {
   if (err) console.log('shit', err);
   if (!fs.existsSync('.tmp')) fs.mkdirSync('.tmp');
+  if (fs.existsSync('icons')) rimraf('icons', () => {});
 
   let resizePass = Object.keys(icons).reduce((promiseChain, size) => {
     return promiseChain.then(
       () =>
         new Promise(resolve => {
-          resizeImages(imageData, size, resolve);
+          resizeImages(imageBuffer, size, resolve);
         })
     );
   }, Promise.resolve());
@@ -78,9 +82,11 @@ fs.readFile(path.resolve(__dirname, 'sample.png'), (err, imageData) => {
       );
     }, Promise.resolve());
 
-    console.log('⏱  Optimizing...');
+    console.log(
+      '⏱  Optimizing... larger icons will take longer... use the fifth P!'
+    );
     optimizationPass.then(() => {
-      console.log('✅  Success!');
+      console.log('✅  Success! Thanks for being patient.');
       console.log('');
       console.log('');
 

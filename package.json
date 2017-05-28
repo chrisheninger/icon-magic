@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "magic": "node --trace-warnings index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node --trace-warnings index.js",
+    "test": "echo \"lol tests? 🙈   nope.\" && exit 1"
   },
   "author": "",
   "dependencies": {
     "gm": "^1.23.0",
     "imagemin": "^5.3.1",
-    "imagemin-pngquant": "^5.0.0",
+    "imagemin-zopfli": "^5.1.0",
     "rimraf": "^2.6.1"
   },
   "license": "TBD"
