@@ -2,6 +2,7 @@
 A Node script that uses [GraphicsMagick](http://aheckmann.github.io/gm/docs.html) and [ImageMin](https://github.com/imagemin/imagemin) to resize, optimize, and prefix your "Add to Homescreen" icons for Apple and Android devices from a single source image (png).
 
 ## Usage:
+Make sure you have GraphicsMagick ☝️ installed on your machine and available on the command-line already.
 ```js
 // Clone the repository and cd into the directory
 git clone git@github.com:chrisheninger/icon-magic.git && cd icon-magic
@@ -72,7 +73,7 @@ mv icons/ ../path/to/desired/directory/
 
 
 ## Example:
-`npm start ./sample.png`
+`npm start ./icons/sample.png`
 
 | Filename                     | Image                                                    |
 | ---------------------------- | -------------------------------------------------------- |

@@ -1,18 +1,33 @@
 {
   "name": "icon-magic",
   "version": "0.0.1",
-  "description": "",
+  "description": "Auto-generate your 'Add to Homescreen' icons for Apple and Android devices from a single source image.",
   "main": "index.js",
   "scripts": {
-    "start": "node --trace-warnings index.js",
+    "magic": "node --trace-warnings index.js",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "precommit": "lint-staged",
     "test": "echo \"lol tests? 🙈   nope.\" && exit 1"
   },
-  "author": "",
   "dependencies": {
+    "classnames": "^2.2.5",
+    "fela": "^4.3.5",
+    "fela-plugin-fallback-value": "^4.3.5",
+    "fela-plugin-prefixer": "^4.3.5",
     "gm": "^1.23.0",
     "imagemin": "^5.3.1",
     "imagemin-zopfli": "^5.1.0",
+    "prop-types": "^15.5.10",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-fela": "^4.3.5",
     "rimraf": "^2.6.1"
   },
-  "license": "TBD"
+  "devDependencies": {
+    "husky": "^0.13.4",
+    "lint-staged": "^3.5.0",
+    "react-scripts": "^1.0.7"
+  },
+  "license": "MIT"
 }

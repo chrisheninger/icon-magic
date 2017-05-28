@@ -1,3 +1,12 @@
-.DS_Store
-.tmp
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
 node_modules
+
+# production
+.tmp
+
+# misc
+.DS_Store
+.env
+npm-debug.log
