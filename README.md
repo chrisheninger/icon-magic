@@ -11,7 +11,7 @@ git clone git@github.com:chrisheninger/icon-magic.git && cd icon-magic
 npm install
 
 // The script takes a single argument– a source image path (png-only)
-npm start ./sample.png
+npm start ./path/to/sample.png
 
 // If everything is successful, you should have a directory named 'icons'
 // with all the prefixed, resized, and optimized images! 🎉
@@ -20,7 +20,7 @@ npm start ./sample.png
 mv icons/ ../path/to/desired/directory/
 ```
 
-## Tags:
+## Markup:
 ```html
 <!-- Apple Guidelines: https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html -->
 <link rel="apple-touch-icon" href="./path/to/icons/apple-touch-icon-60x60.png" />
@@ -77,6 +77,7 @@ mv icons/ ../path/to/desired/directory/
 
 | Filename                     | Image                                                    |
 | ---------------------------- | -------------------------------------------------------- |
+| favicon.png                  | ![favicon](./icons/favicon.png)    |
 | apple-touch-icon-60x60.png   | ![apple-touch-60](./icons/apple-touch-icon-60x60.png)    |
 | apple-touch-icon-120x120.png | ![apple-touch-120](./icons/apple-touch-icon-120x120.png) |
 | apple-touch-icon-152x152.png | ![apple-touch-152](./icons/apple-touch-icon-152x152.png) |
@@ -98,4 +99,4 @@ Browser and Mobile OS vendors have different methods for handling web apps on th
 
 ## Mac OS App
 
-A drag-and-drop standalone Mac OS App is currently in the works thanks to [Create React App](https://github.com/facebookincubator/create-react-app) and [Electron](https://github.com/electron/electron). 
+A drag-and-drop standalone Mac OS App is currently in the works thanks to [Create React App](https://github.com/facebookincubator/create-react-app) and [Electron](https://github.com/electron/electron).

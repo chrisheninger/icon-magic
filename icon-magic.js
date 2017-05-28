@@ -7,6 +7,7 @@ const imageminZopfli = require('imagemin-zopfli');
 const args = process.argv;
 
 const icons = {
+  32: 'favicon',
   60: 'apple-touch',
   120: 'apple-touch',
   152: 'apple-touch',
@@ -19,22 +20,28 @@ const icons = {
 };
 
 function optimizeImages(size, cb) {
+  const filename = icons[size] === 'favicon'
+    ? 'favicon.png'
+    : `${icons[size]}-icon-${size}x${size}.png`;
+
   // https://github.com/imagemin/imagemin
   imagemin(
-    [path.resolve(__dirname, `./.tmp/${icons[size]}-icon-${size}x${size}.png`)], // input file
+    [path.resolve(__dirname, `./.tmp/${filename}`)], // input file
     'icons', // output dir
     {
       use: [imageminZopfli({ more: true })], // https://github.com/imagemin/imagemin-zopfli
     }
   ).then(() => {
-    console.log(
-      `./${icons[size]}-icon-${size}x${size}.png ===> Optimization complete 🎉`
-    );
+    console.log(`./${filename} ===> Optimization complete 🎉`);
     cb();
   });
 }
 
 function resizeImages(imageBuffer, size, cb) {
+  const filename = icons[size] === 'favicon'
+    ? 'favicon.png'
+    : `${icons[size]}-icon-${size}x${size}.png`;
+
   // https://github.com/aheckmann/gm
   gm(imageBuffer)
     // Validation
@@ -58,19 +65,14 @@ function resizeImages(imageBuffer, size, cb) {
     })
     // Resizing
     .resize(size, size)
-    .write(
-      path.resolve(__dirname, `./.tmp/${icons[size]}-icon-${size}x${size}.png`),
-      err => {
-        if (err) {
-          console.log(':( An error occured.', err);
-        } else {
-          console.log(
-            `./${icons[size]}-icon-${size}x${size}.png ===> Resize complete 🎉`
-          );
-        }
-        cb();
+    .write(path.resolve(__dirname, `./.tmp/${filename}`), err => {
+      if (err) {
+        console.log(':( An error occured.', err);
+      } else {
+        console.log(`./${filename} ===> Resize complete 🎉`);
       }
-    );
+      cb();
+    });
 }
 
 // args[0] == node bin path
