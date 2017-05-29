@@ -126,6 +126,6 @@ if (fs.existsSync(args[2])) {
   });
 } else {
   throw Error(
-    'You must provide a source image to the `npm start` command. See README.md for details.'
+    '❌  You must provide a source image to the `npm start` command. See README.md for details.'
   );
 }
