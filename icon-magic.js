@@ -32,9 +32,7 @@ function optimizeImage(filename) {
       console.log(`✅  ./${filename} ===> Optimization complete 🎉`);
       resolve();
     })
-  ).catch(err => {
-    console.log(`❌  This is bad... I have no idea what's gone wrong.`, err);
-  });
+  );
 }
 
 function resizeImage(imageBuffer, size) {
@@ -77,9 +75,7 @@ function resizeImage(imageBuffer, size) {
         }
         resolve(filename);
       })
-  ).catch(err => {
-    console.log(`❌  This is bad... I have no idea what's gone wrong.`, err);
-  });
+  );
 }
 
 // args[0] == node bin path
