@@ -1,6 +1,5 @@
 {
   "name": "icon-magic",
-  "productName": "Icon Magic",
   "version": "0.0.1",
   "description": "Generate your 'Add to Homescreen' icons for Apple and Android devices from a single source image.",
   "license": "MIT",
