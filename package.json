@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "description": "Generate your 'Add to Homescreen' icons for Apple and Android devices from a single source image.",
   "license": "MIT",
+  "main": "icon-magic.js",
   "scripts": {
     "precommit": "lint-staged",
-    "magic": "node --trace-warnings icon-magic.js",
+    "start": "node --trace-warnings icon-magic.js",
     "test": "echo \"lol tests? 🙈   nope.\" && exit 1"
   },
   "dependencies": {
