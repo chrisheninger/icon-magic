@@ -1,5 +1,5 @@
 # Icon Magic 📲🕴
-A Node script that uses [GraphicsMagick](http://aheckmann.github.io/gm/docs.html) and [imagemin](https://github.com/imagemin/imagemin) + [imagemin-Zopfli](https://github.com/imagemin/imagemin-zopfli) to resize, optimize, and prefix your "Add to Homescreen" icons for Apple and Android devices from a single source image (png).
+A Node script that uses [GraphicsMagick](http://aheckmann.github.io/gm/docs.html) and [imagemin](https://github.com/imagemin/imagemin) + [imagemin-Zopfli](https://github.com/imagemin/imagemin-zopfli) to resize, optimize, and prefix your "Add to Homescreen" icons for Apple and Android devices from a single image source (.png).
 
 ## Usage:
 Make sure you have GraphicsMagick ☝️ installed on your machine and available on the command-line already.
@@ -102,4 +102,4 @@ Browser and Mobile OS vendors have different methods for handling web apps on th
 
 A drag-and-drop standalone Mac OS App is currently in the works thanks to [Create React App](https://github.com/facebookincubator/create-react-app) and [Electron](https://github.com/electron/electron).
 
-https://github.com/chrisheninger/icon-magic/issues/4
+https://github.com/chrisheninger/icon-magic-app
