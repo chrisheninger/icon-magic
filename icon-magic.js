@@ -80,12 +80,13 @@ function resizeImage(imageBuffer, size) {
 }
 
 // args[0] == node bin path
-// args[1] == this index.js path
+// args[1] == the icon-magic bin
 // args[2] == user-provided image source path
 if (fs.existsSync(args[2])) {
   // Read image source from filesystem into a buffer
   fs.readFile(path.resolve(args[2]), (err, imageBuffer) => {
-    if (err) console.log(':( An error occured.', err);
+    if (err)
+      console.error(`❌  This is bad... I have no idea what's gone wrong.`, err);
     if (!fs.existsSync('.tmp')) fs.mkdirSync('.tmp');
     if (fs.existsSync('icons')) rimraf('icons', () => {});
     // Iterate over our options object `icons` and begin resizing images
@@ -113,12 +114,17 @@ if (fs.existsSync(args[2])) {
           // ...remove the .tmp directory we used earlier
           console.log('🗑  Cleaning Up...');
           rimraf('.tmp', () => {
-            console.log('✅  Success!');
+            console.log(
+              `✅  Success! ${Object.keys(icons).length} images were created in the "icons" directory.`
+            );
           });
         });
       })
       .catch(err => {
-        console.log(`❌  This is bad... I have no idea what's gone wrong.`, err);
+        console.error(
+          `❌  This is bad... I have no idea what's gone wrong.`,
+          err
+        );
       });
   });
 } else {

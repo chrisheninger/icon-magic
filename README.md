@@ -4,14 +4,11 @@ A Node script that uses [GraphicsMagick](http://aheckmann.github.io/gm/docs.html
 ## Usage:
 Make sure you have GraphicsMagick ☝️ installed on your machine and available on the command-line already.
 ```js
-// Clone the repository and cd into the directory
-git clone git@github.com:chrisheninger/icon-magic.git && cd icon-magic
+// Install globally via npm (or yarn)
+npm install icon-magic -g
 
-// Install dependencies via npm (or yarn)
-npm install
-
-// The script takes a single argument– a source image path (png-only)
-npm start ./path/to/sample.png
+// The cli takes a single argument– a source image path (png-only)
+icon-magic ./path/to/sample.png
 
 // If everything is successful, you should have a directory named 'icons'
 // with all the prefixed, resized, and optimized images! 🎉
