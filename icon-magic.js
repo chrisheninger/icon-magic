@@ -115,7 +115,7 @@ if (fs.existsSync(args[2])) {
           console.log('🗑  Cleaning Up...');
           rimraf('.tmp', () => {
             console.log(
-              `✅  Success! ${Object.keys(icons).length} images were created in the "icons" directory.`
+              `✅  Success! ${Object.keys(icons).length} images were created and are available in the "icons" directory.`
             );
           });
         });
