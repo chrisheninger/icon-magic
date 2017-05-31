@@ -49,18 +49,18 @@ function resizeImage(imageBuffer, size) {
         if (err) throw new Error(err);
         if (value !== 'PNG')
           throw new Error(
-            '❌  Source image must be PNG format. See README.me for details.'
+            '❌  Source image must be PNG format. See README.md for details.'
           );
       })
       .size((err, value) => {
         if (err) throw new Error(err);
         if (value.width !== value.height)
           throw new Error(
-            '❌  Source image must be a square. See README.me for details.'
+            '❌  Source image must be a square. See README.md for details.'
           );
         if (value.width < 512)
           throw new Error(
-            '❌  Source image dimensions must be at least 512px x 512px. See README.me for details.'
+            '❌  Source image dimensions must be at least 512px x 512px. See README.md for details.'
           );
       })
       // Resizing
@@ -129,6 +129,6 @@ if (fs.existsSync(args[2])) {
   });
 } else {
   throw Error(
-    '❌  You must provide a source image to the `image-magic` command. See README.md for details.'
+    '❌  You must provide a source image to the `icon-magic` command. See README.md for details.'
   );
 }
