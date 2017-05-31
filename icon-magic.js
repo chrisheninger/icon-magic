@@ -24,7 +24,7 @@ function optimizeImage(filename) {
   return new Promise((resolve, reject) =>
     // https://github.com/imagemin/imagemin
     imagemin(
-      [path.resolve(__dirname, `./.tmp/${filename}`)], // input file
+      [`./.tmp/${filename}`], // input file
       'icons', // output dir
       {
         use: [imageminZopfli({ more: true })], // https://github.com/imagemin/imagemin-zopfli
@@ -65,7 +65,7 @@ function resizeImage(imageBuffer, size) {
       })
       // Resizing
       .resize(size, size)
-      .write(path.resolve(__dirname, `./.tmp/${filename}`), err => {
+      .write(`./.tmp/${filename}`, err => {
         if (err) {
           console.error(
             `❌  This is bad... I have no idea what's gone wrong.`,
@@ -88,7 +88,7 @@ if (fs.existsSync(args[2])) {
     if (err)
       console.error(`❌  This is bad... I have no idea what's gone wrong.`, err);
     if (!fs.existsSync('.tmp')) fs.mkdirSync('.tmp');
-    if (fs.existsSync('icons')) rimraf('icons', () => {});
+    // if (fs.existsSync('icons')) rimraf('icons', () => {});
     // Iterate over our options object `icons` and begin resizing images
     console.log('📏  Resizing...');
     let resizePass = Object.keys(icons).map(size =>
@@ -129,6 +129,6 @@ if (fs.existsSync(args[2])) {
   });
 } else {
   throw Error(
-    '❌  You must provide a source image to the `npm start` command. See README.md for details.'
+    '❌  You must provide a source image to the `image-magic` command. See README.md for details.'
   );
 }
