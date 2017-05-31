@@ -24,7 +24,7 @@ function optimizeImage(filename) {
   return new Promise((resolve, reject) =>
     // https://github.com/imagemin/imagemin
     imagemin(
-      [`./.tmp/${filename}`], // input file
+      [`.tmp/${filename}`], // input file
       'icons', // output dir
       {
         use: [imageminZopfli({ more: true })], // https://github.com/imagemin/imagemin-zopfli
@@ -65,7 +65,7 @@ function resizeImage(imageBuffer, size) {
       })
       // Resizing
       .resize(size, size)
-      .write(`./.tmp/${filename}`, err => {
+      .write(`.tmp/${filename}`, err => {
         if (err) {
           console.error(
             `❌  This is bad... I have no idea what's gone wrong.`,
@@ -97,7 +97,7 @@ if (fs.existsSync(args[2])) {
     // Once resized image promise resolves...
     Promise.all(resizePass)
       .then(resizedImages => {
-        console.log('✅  Success!\n\n');
+        console.log('💯  Success!\n\n');
         // ...pass them into the optimization function
         console.log(
           '⏱  Optimizing... larger icons will take longer to optimize... use the fifth P!'
@@ -110,12 +110,12 @@ if (fs.existsSync(args[2])) {
         );
         // Once optimization promise resolves...
         Promise.all(optimizationPass).then(() => {
-          console.log('✅  Success! Thanks for being patient.\n\n');
+          console.log('💯  Success! Thanks for being patient.\n\n');
           // ...remove the .tmp directory we used earlier
           console.log('🗑  Cleaning Up...');
           rimraf('.tmp', () => {
             console.log(
-              `✅  Success! ${Object.keys(icons).length} images were created and are available in the "icons" directory.`
+              `💯  Success! ${Object.keys(icons).length} images were created and are available in the "icons" directory.`
             );
           });
         });
