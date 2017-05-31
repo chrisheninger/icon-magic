@@ -2,19 +2,16 @@
 A Node script that uses [GraphicsMagick](http://aheckmann.github.io/gm/docs.html) and [imagemin](https://github.com/imagemin/imagemin) + [imagemin-Zopfli](https://github.com/imagemin/imagemin-zopfli) to resize, optimize, and prefix your "Add to Homescreen" icons for Apple and Android devices from a single image source (.png).
 
 ## Usage:
-Make sure you have GraphicsMagick ☝️ installed on your machine and available on the command-line already.
+Make sure you have GraphicsMagick ☝️ installed on your machine and available on the command-line.
 ```js
 // Install globally via npm (or yarn)
 npm install icon-magic -g
 
 // The cli takes a single argument– a source image path (png-only)
-icon-magic ./path/to/sample.png
+icon-magic ./sample.png
 
 // If everything is successful, you should have a directory named 'icons'
 // with all the prefixed, resized, and optimized images! 🎉
-
-// Move the outputted icons directory to your project directory
-mv icons/ ../path/to/desired/directory/
 ```
 
 ## Markup:
