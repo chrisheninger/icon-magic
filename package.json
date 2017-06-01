@@ -1,7 +1,7 @@
 {
   "name": "icon-magic",
-  "version": "0.1.2",
-  "description": "Generate your 'Add to Homescreen' icons for Apple and Android devices from a single source image.",
+  "version": "0.2.0",
+  "description": "Generate your 'Add to Homescreen' icons for Apple and Android devices from a single 512x512+ png image.",
   "license": "MIT",
   "bin": {
     "icon-magic": "icon-magic.js"
