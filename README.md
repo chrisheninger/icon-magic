@@ -3,14 +3,14 @@ A helpful script that uses [GraphicsMagick for node.js](http://aheckmann.github.
 
 ## Usage:
 
-🛑  Make sure you have [GraphicsMagick](http://www.graphicsmagick.org/) installed on your machine and available on the command-line. (Mac OS users with [HomeBrew](https://brew.sh/) can `brew install graphicsmagick`)
+🛑 ⚠️  Make sure you have [GraphicsMagick](http://www.graphicsmagick.org/) installed on your machine and available on the command-line. (Mac OS users with [HomeBrew](https://brew.sh/) can `brew install graphicsmagick`)
 
 ```js
 // Install globally via npm (or yarn)
 npm install icon-magic -g
 
 // The cli takes a single argument– a source image path
-// (⚠️  Your image must be a square .png file, larger than 512x512)
+// (Your image must be a square .png file, larger than 512x512)
 icon-magic ./sample.png
 
 // If everything is successful, you should have a directory named 'icons'
