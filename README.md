@@ -79,7 +79,6 @@ icon-magic ./sample.png
 | apple-touch-icon-60x60.png   | ![apple-touch-60](./icons/apple-touch-icon-60x60.png)    |
 | apple-touch-icon-120x120.png | ![apple-touch-120](./icons/apple-touch-icon-120x120.png) |
 | apple-touch-icon-152x152.png | ![apple-touch-152](./icons/apple-touch-icon-152x152.png) |
-| apple-touch-icon-152x152.png | ![apple-touch-152](./icons/apple-touch-icon-152x152.png) |
 | apple-touch-icon-167x167.png | ![apple-touch-167](./icons/apple-touch-icon-167x167.png) |
 | apple-touch-icon-180x180.png | ![apple-touch-180](./icons/apple-touch-icon-180x180.png) |
 | pwa-icon-192x192.png         | ![pwa-192](./icons/pwa-icon-192x192.png)                 |
