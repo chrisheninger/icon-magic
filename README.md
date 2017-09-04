@@ -92,10 +92,3 @@ Browser and Mobile OS vendors have different methods for handling web apps on th
 | pwa-icon-256x256.png         | ![pwa-256](./icons/pwa-icon-256x256.png)                 |
 | pwa-icon-384x384.png         | ![pwa-384](./icons/pwa-icon-384x384.png)                 |
 | pwa-icon-512x512.png         | ![pwa-512](./icons/pwa-icon-512x512.png)                 |
-
-
-## Mac OS App
-
-A drag-and-drop standalone Mac OS App is currently in the works thanks to [Create React App](https://github.com/facebookincubator/create-react-app) and [Electron](https://github.com/electron/electron).
-
-https://github.com/chrisheninger/icon-magic-app
